@@ -743,10 +743,14 @@
                         </div>
                         <div class="textbox">
                             <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
-                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the average cat positive outcome by 24.5% and 19.6%.
-                                However positive outcome of the top two popular dog breeds exceeds the average dog positive outcome by merely 4.7% and 2.9%. What does that mean?
-                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs (53% vs 76%), therefore smaller denominator leads to larger variance.
-                                Secondly, generally speaking cat adopters always have a larger set of options. So, sheltered cats need something special to stand out, for example, rare breeds. 
+                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
+                                average cat positive outcome by 24.5% and 19.6%.
+                                However positive outcome of the top two popular dog breeds exceeds the average dog
+                                positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
+                                (53% vs 76%), therefore smaller denominator leads to larger variance.
+                                Secondly, generally speaking cat adopters always have a larger set of options. So,
+                                sheltered cats need something special to stand out, for example, rare breeds.
                             </p>
                             <br>
                             <button class="topicButton" onclick="currentSlide(17)">Show Cat!</button>
@@ -776,12 +780,16 @@
                         </div>
                         <div class="textbox">
                             <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
-                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the average cat positive outcome by 24.5% and 19.6%.
-                                However positive outcome of the top two popular dog breeds exceeds the average dog positive outcome by merely 4.7% and 2.9%. What does that mean?
-                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs (53% vs 76%), therefore smaller denominator leads to larger variance.
-                                Secondly, generally speaking cat adopters always have a larger set of options. So, sheltered cats need something special to stand out, for example, rare breeds. </p>
-                                <br>
-                                <button class="topicButton" onclick="currentSlide(16)">Show Dog!</button>
+                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
+                                average cat positive outcome by 24.5% and 19.6%.
+                                However positive outcome of the top two popular dog breeds exceeds the average dog
+                                positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
+                                (53% vs 76%), therefore smaller denominator leads to larger variance.
+                                Secondly, generally speaking cat adopters always have a larger set of options. So,
+                                sheltered cats need something special to stand out, for example, rare breeds. </p>
+                            <br>
+                            <button class="topicButton" onclick="currentSlide(16)">Show Dog!</button>
                         </div>
                     </div>
                     <form>
@@ -812,28 +820,6 @@
 
 
 </body>
-
-<script>
-    $(function () {
-            
-        var system = {};
-        var p = navigator.platform;
-        var u = navigator.userAgent;
-        system.win = p.indexOf("Win") == 0;
-        system.mac = p.indexOf("Mac") == 0;
-        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
-        if (system.win || system.mac || system.xll) {
-            if (u.indexOf('Windows Phone') > -1) {
-               
-            }else {
-                alert('Please visit again from laptop :)')
-            }
-        }else{
-             $('#body').css('display','none');
-        }
-       
-    });
-    </script>
 
 <script>
     let slideIndex = 1;
@@ -1692,6 +1678,27 @@
     svg11.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
     svg11.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg11.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+</script>
+
+<script>
+    $(function () {
+        var system = {};
+        var p = navigator.platform;
+        var u = navigator.userAgent;
+        system.win = p.indexOf("Win") == 0;
+        system.mac = p.indexOf("Mac") == 0;
+        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+        if (system.win || system.mac || system.xll) {
+            if (u.indexOf('Windows Phone') > -1) {
+
+            } else {
+                alert('Please visit again from laptop :)')
+            }
+        } else {
+            $('#body').css('display', 'none');
+        }
+
+    });
 </script>
 
 </html>

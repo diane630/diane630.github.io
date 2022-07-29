@@ -1,1 +1,1675 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1200px;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev,
+    .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 40px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+        text-shadow: -1px 0 grey, 0 1px grey, 1px 0 grey, 0 -1px grey;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Caption text */
+    .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+        margin: 1%;
+        background-color: lightgrey;
+        color: black;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    .authortext {
+        margin-left: 80%;
+        margin-top: 1%;
+        background-color: lightgrey;
+        color: black;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+        background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: .4
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+
+        .prev,
+        .next,
+        .text {
+            font-size: 11px
+        }
+    }
+
+    body {
+        font-family: Verdana, sans-serif;
+        margin: 0
+            /* border: 3px outset black; */
+    }
+
+    .mySlides {
+        height: 1000px;
+        width: 1200px;
+        border: 2px solid black;
+        display: none
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+    .topicButton {
+        background-color: burlywood;
+        border: none;
+        color: black;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 2%;
+        padding-bottom: 2%;
+        text-align: center;
+        display: inline-block;
+        margin-right: 5%;
+        margin-left: 5%;
+        cursor: pointer;
+        border-radius: 16px;
+        font-size: 25px;
+    }
+
+    .topicButton:hover {
+        background-color: blanchedalmond;
+    }
+
+    .indiv {
+        padding-top: 10px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+        text-align: center;
+        flex: 1 1 0px;
+    }
+
+    .outdiv {
+        width: 100%;
+        height: 69%;
+        background-color: lightgrey;
+    }
+
+    .parent {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .top {
+        color: white;
+        background-color: skyblue;
+        text-align: center;
+    }
+
+    .intro {
+        margin: 3%;
+        text-align: center;
+    }
+
+    p {
+        text-align: left;
+    }
+
+    .message {
+        text-align: center;
+        border: 3px;
+        border-style: solid;
+        border-color: black;
+        padding: 1em;
+    }
+
+    h3 {
+        color: white;
+        background-color: grey;
+        text-align: center;
+    }
+
+    th {
+        color: white;
+        background-color: grey;
+        text-align: center;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 70px 0;
+    }
+
+    .line {
+        fill: none;
+        stroke: steelblue;
+        stroke-width: 2px;
+    }
+
+    .textbox {
+        padding-top: 1%;
+        padding-bottom: 5%;
+        padding-left: 7%;
+        padding-right: 7%;
+        text-align: left;
+    }
+</style>
+
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F01%2Fpuppies.jpg&q=60"
+                style="width:100%">
+            <div class="intro">
+                <h1><b>Inspiration </b></h1>
+                <p> I wanted to pick a topic that interested me and I chose this dataset of Austin
+                    animal shelter because I felt it can be used to analyze adopters and pets they adopted. I'm an
+                    adopter myself. My two lovely cats were originally stray cats. They were first registered at a
+                    regional shelter and were later transferred to a nearby shelter before they finally came to my home.
+                    <br><br>In most cases, adopters choose to sign up on a waiting list at local shelter. Last year when
+                    I joined the waiting list, I clearly knew what I preferred to adopt: kittens that are young and
+                    healthy. Additionally I preferred domestic shorthair as this breed is known for being strong and
+                    energetic. <u><strong> I wonder how others think when they join the waiting list and what factors
+                            have
+                            affected their adoption decision?</u></strong> I hope this dataset will give me some
+                    insights.
+                </p>
+            </div>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Overview of the dataset</h3>
+                    <h2><b>Austin Animal Center Shelter</b></h2>
+                    <div class="textbox">
+                        <h4>The largest U.S. animal shelter dataset</h4>
+                        <p>The Austin Animal Center is the largest no-kill animal shelter in the United States that
+                            provides care and shelter to over 18,000 animals each year. As part of the AAC's efforts to
+                            help and care for animals in need, the organization makes available its accumulated data and
+                            statistics as part of the city of Austin's Open Data Initiative.
+                        </p>
+                        <h4>Content of Dataset: Intakes & Outcomes 2013 ~ 2018</h4>
+                        <p>The data contains intakes and outcomes of animals entering the Austin Animal Center from the
+                            beginning of October 2013. The datasets are also freely available on the Socrata Open Data
+                            Access API and are updated daily. For this visualization project, I selected a Kaggle
+                            dataset which is a merged version of raw intakes and outcomes data from October 2013 to
+                            March 2018.</p>
+                        <p>For more information about the dataset, please refer to:
+                            <br>
+                            <br> <u>Socrata's Open Data:</u>
+                            <br> <a
+                                href="https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Intakes/wter-evkm"
+                                target="_blank"> - Austin Animal Center Intakes</a>
+                            <br> <a
+                                href="https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Outcomes/9t4d-g238"
+                                target="_blank"> - Austin Animal Center Outcomes</a>
+                            <br>
+                            <br> <u>Kaggle:</u>
+                            <br> <a
+                                href="https://www.kaggle.com/datasets/aaronschlegel/austin-animal-center-shelter-intakes-and-outcomes"
+                                target="_blank"> - Austin Animal Center Shelter Intakes and Outcomes</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Overview of the dataset</h3>
+                    <h2><b>Austin Animal Center Intakes</b></h2>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Count by Intake Type</h4>
+                            <div id="my_dataviz1"></div>
+                        </div>
+                        <div class="textbox">
+                            <p><strong>Animal Intakes (2013 ~ 2018)</strong>
+                                <br>
+                                <br>
+                                Intakes represent the status of animals as they arrive at the Animal Center. The largest
+                                source of shelter animals is stray, taking about 80% of the total numbers. Other intake
+                                types include Owner Surrender, Public Assist, Wildlife and Euthanasia Request. Only 251
+                                cases out of 79,672 records are Euthanasia Request (0.3%), which agrees with its
+                                reputation of being the largest "No Kill" shelter in the country.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">4 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Overview of the dataset</h3>
+                    <h2><b>Austin Animal Center Outcomes</b></h2>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Count by Outcome Type</h4>
+                            <div id="my_dataviz2"></div>
+                        </div>
+                        <div class="textbox">
+                            <p><strong>Animal Outcomes (2013 ~ 2018)</strong>
+                                <br>
+                                <br>
+                                Outcomes represent the status of animals as they leave the Animal Center. Annually over
+                                90% of animals entering the center are adopted, transferred to rescue or returned to
+                                their owners. Only 6244 outcomes out of 79,672 records are Euthanasia (7.8 %), which
+                                qualifies the shelter as "No Kill" shelter by maintaining the live save rate higher than
+                                90%.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">5 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Overview of the dataset</h3>
+                    <h2><b>Austin Animal Center Animals</b></h2>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Distribution by Animal Type</h4>
+                            <div id="my_dataviz3"></div>
+                        </div>
+                        <div class="textbox">
+                            <p><strong>Animal Types (2013 ~ 2018)</strong>
+                                <br>
+                                <br>
+                                The animal types are classified as dog, cat, bird and others. Dogs and cats are dominant
+                                in the dataset, therefore I will focus more on them in the following studies. Are you
+                                curious to learn
+                                the difference between dog adopters and cat adopters?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">6 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> What factors will affect adoption?</h3>
+                    <div class="textbox">
+                        <h4></h4>
+                        <br><br>
+                        <p>I’m interested to know what are the major considerations when people decide to adopt pets
+                            from a shelter. Based on my own judgment, I have classified three outcome types as positive
+                            outcomes and the rest as negative outcomes.
+                            <u>In other words, I want to figure out what parameters contribute more towards the positive
+                                outcomes and what parameters contribute more towards the negative outcomes.</u>
+                            <br><br><br><br>
+                            <strong>Positive Outcome:</strong> Adoption, Return to Owner and Rto-Adopt
+                            <br><br>
+                            <strong>Negative Outcome:</strong> Transfer, Euthanasia, Died, Disposal, Missing and
+                            Relocate
+                            <br><br><br><br><u>After screening all the fields of dataset, I have identified two primary
+                                factors and three
+                                secondary factors.</u>
+                            <br><br><br><br>
+                            <strong>Primary factors:</strong> contain a common trend that is shared among all
+                            animal types.
+                            <br><br><strong>Secondary factors:</strong> contain a trend that is relevant to a specific
+                            animal type.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">7 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Primary factors that affect adoption</h3>
+                    <div class="textbox">
+                        <h4>Primary factors contain a common trend that is shared among all animal types.</h4><br>
+                        <ul><strong>Sex</strong>
+                            <br>Generally adopters have no preference on gender, but they very much prefer pet
+                            sterilization.
+                        </ul><br>
+                        <ul><strong>Age</strong>
+                            <br>People consider adopting younger pets over aged pets. Senior pets are more likely return
+                            to
+                            their owners.
+                        </ul>
+                    </div>
+                    <h4>Click to learn more!</h4>
+                    <button class="topicButton" onclick="currentSlide(10)">Sex</button>
+                    <button class="topicButton" onclick="currentSlide(11)">Age</button>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Secondary factors that affect adoption</h3>
+                    <div class="textbox">
+                        <h4>Secondary factors contain a trend that is relevant to a specific animal type.</h4><br>
+                        <ul><strong>Health</strong>
+                            <br>More people are willing to adopt cats in non-normal conditions than dogs in non-normal
+                            conditions.
+                        </ul><br>
+                        <ul><strong>Month</strong>
+                            <br>Cats adoption has a seasonal popularity shift while dogs adoption is almost consistent
+                            throughout the year.
+                        </ul><br>
+                        <ul><strong>Breed</strong>
+                            <br>Some cat breeds gain distinguished popularity among cats adopters while dogs adopters
+                            focus less on breed.
+                        </ul>
+                    </div>
+                    <h4>Click to learn more!</h4>
+                    <button class="topicButton" onclick="currentSlide(12)">Health</button>
+                    <button class="topicButton" onclick="currentSlide(14)">Month</button>
+                    <button class="topicButton" onclick="currentSlide(16)">Breed</button>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">9 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2018/06/kittens-in-shelter-69469.jpg?h=ece64c50&itok=rUfYlJ8G"
+                style="width:100%">
+            <div class="intro">
+                <h1><b>Why adopting pets?</b></h1>
+                <p>Did you know that over 1,000 people per hour run a search right here looking to adopt a pet? Pet
+                    adoption is quickly becoming the preferred way to find a new dog or cat, and rightly so, there are
+                    many benefits to adopting a pet. Pet adoption fees are usually much lower than buying from a
+                    breeder. You’re also likely to find a pet who’s already learned a few things. Adoptable pets are
+                    often already housetrained, good with kids, and do well with other pets.
+                    <br><br><u> By signing up on a waiting list, you will have the chance to adopt pets that perfectly
+                        satisfy your needs (e.g. sex, age, health, month,
+                        breed, etc.)
+                    </u>
+                    <br> <strong>And don’t forget the wonderful feeling you get from saving a life!</strong>
+                </p>
+                <p>
+                    <br>
+                <h2>Find an animal shelter near me!</h2>
+                <ul>
+                    <a href="https://www.petfinder.com/" target="_blank">PetFinder</a>
+                    <br> <a href="https://www.adoptapet.com/" target="_blank">Adopt a Pet</a>
+                    <br><a href="https://www.petsmart.com/adoption/people-saving-pets/ca-adoption-landing.html"
+                        target="_blank">PetSmart</a>
+                </ul>
+                <br>Author: Daiyun Xu (daiyunx2@illinois.edu)
+                </p>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">7.1 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Sex</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Two-class Outcome Percentage by Sex</h4>
+                            <div id="my_dataviz4"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>Generally adopters have no preference on gender, but they very much prefer pet
+                                sterilization. This phenomenon is even more obvious on female animals from the fact that
+                                female animals gain 254% popularity after sterilization. The popularity increase of male
+                                animals
+                                is 177%.</p>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(7)">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">7.2 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3> Age</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Average Age by Outcome Type</h4>
+                            <div id="my_dataviz5"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>People consider adopting younger pets over aged pets. Senior pets are more likely return
+                                to their
+                                owners. I chose not to show two-class outcome types because the two major positive
+                                outcomes,
+                                adoption and return to owner, have completely divergent average age. Therefore it is of
+                                little value to show them as a whole.</p>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(7)">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8.1 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3>Health</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Two-class Outcome Percentage by Health (Dog)</h4>
+                            <div id="my_dataviz6"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>More people are willing to adopt cats in non-normal conditions than dogs in non-normal
+                                conditions. The percentage of normal dogs ended up having positive outcome versus
+                                negative outcome is 77% to 23%. However this difference is not significant for normal
+                                cats, which is 53%
+                                to 47%. The reason behind it might relate to an intrinsic difference between cats and
+                                dogs -- dogs are pure outdoor animals but
+                                majority of cats are kept indoor. Consequently, physical diasability or compromised
+                                mobility will affect cats' popularity less than dogs' popularity.
+                            </p>
+                            <br>
+                            <button class="topicButton" onclick="currentSlide(13)">Show Cat!</button>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(8)">
+                    </form>
+                </div>
+            </div>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8.2 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3>Health</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Two-class Outcome Percentage by Health (Cat)</h4>
+                            <div id="my_dataviz7"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>More people are willing to adopt cats in non-normal conditions than dogs in non-normal
+                                conditions. The percentage of normal dogs ended up having positive outcome versus
+                                negative outcome is 77% to 23%. However this difference is not significant for normal
+                                cats, which is 53%
+                                to 47%. The reason behind it might relate to an intrinsic difference between cats and
+                                dogs -- dogs are pure outdoor animals but
+                                majority of cats are kept indoor. Consequently, physical diasability or compromised
+                                mobility will affect cats' popularity less than dogs' popularity.</p>
+                            <br>
+                            <button class="topicButton" onclick="currentSlide(12)">Show Dog!</button>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(8)">
+                    </form>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8.3 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3>Month</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Two-class Outcome Percentage by Month (Dog)</h4>
+                            <div id="my_dataviz8"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost consistent
+                                throughout the year. The first peak of cats adoption is in July and the second peak is
+                                in December, which
+                                happen to align with the twice-a-year birthing season of cats. This phenomenon infers
+                                that cat adopters appear stronger
+                                desire than dog adopters to welcome pets in their early stage, possibly due to the fact
+                                that cats are considered "egoists"
+                                and are less clingy to their owner when they become older.
+                            </p>
+                            <br>
+                            <button class="topicButton" onclick="currentSlide(15)">Show Cat!</button>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(8)">
+                    </form>
+                </div>
+            </div>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8.4 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3>Month</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Two-class Outcome Percentage by Month (Cat)</h4>
+                            <div id="my_dataviz9"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost consistent
+                                throughout the year. The first peak of cats adoption is in July and the second peak is
+                                in December, which
+                                happen to align with the twice-a-year birthing season of cats. This phenomenon infers
+                                that cat adopters appear stronger
+                                desire than dog adopters to welcome pets in their early stage, possibly due to the fact
+                                that cats are considered "egoists"
+                                and are less clingy to their owner when they become older.</p>
+                            <br>
+                            <button class="topicButton" onclick="currentSlide(14)">Show Dog!</button>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(8)">
+                    </form>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8.5 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+                    <h3>Breed</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Two-class Outcome Percentage by Month (Dog)</h4>
+                            <div id="my_dataviz10"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
+                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the average cat positive outcome by 24.5% and 19.6%.
+                                However positive outcome of the top two popular dog breeds exceeds the average dog positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs (53% vs 76%), therefore smaller denominator leads to larger variance.
+                                Secondly, generally speaking cat adopters always have a larger set of options. So, sheltered cats need something special to stand out, for example, rare breeds. 
+                            </p>
+                            <br>
+                            <button class="topicButton" onclick="currentSlide(17)">Show Cat!</button>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(8)">
+                    </form>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">8.6 / 9</div>
+            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                style="width:100%">
+            <div class="outdiv">
+                <div class="indiv">
+
+                    <h3>Breed</h3>
+                    <div class="parent">
+                        <div class="indiv">
+                            <h4>Two-class Outcome Percentage by Breed (Cat)</h4>
+                            <div id="my_dataviz11"></div>
+                        </div>
+                        <div class="textbox">
+                            <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
+                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the average cat positive outcome by 24.5% and 19.6%.
+                                However positive outcome of the top two popular dog breeds exceeds the average dog positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs (53% vs 76%), therefore smaller denominator leads to larger variance.
+                                Secondly, generally speaking cat adopters always have a larger set of options. So, sheltered cats need something special to stand out, for example, rare breeds. </p>
+                                <br>
+                                <button class="topicButton" onclick="currentSlide(16)">Show Dog!</button>
+                        </div>
+                    </div>
+                    <form>
+                        <input type="button" value="Go back!" onclick="currentSlide(8)">
+                    </form>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+        </div>
+
+
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        <span class="dot" onclick="currentSlide(6)"></span>
+        <span class="dot" onclick="currentSlide(7)"></span>
+        <span class="dot" onclick="currentSlide(8)"></span>
+        <span class="dot" onclick="currentSlide(9)"></span>
+    </div>
+
+
+
+</body>
+
+<script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+</script>
+
+<script>
+
+    // set the dimensions and margins of the graph
+    const margin = { top: 30, right: 30, bottom: 70, left: 60 },
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    // append the svg2 object to the body of the page
+    const svg1 = d3.select("#my_dataviz1")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + 20 + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [{ IntakeType: "Stray", Count: 55935 },
+    { IntakeType: "Owner Surrender", Count: 15028 },
+    { IntakeType: "Public Assist", Count: 4994 },
+    { IntakeType: "Wildlife", Count: 3464 },
+    { IntakeType: "Euthanasia Request", Count: 251 }];
+
+    const x1 = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map(d => d.IntakeType))
+        .padding(0.2);
+    svg1.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x1))
+        .selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+        .style("font-size", 12);
+
+    // Add Y axis
+    const y1 = d3.scaleLinear()
+        .domain([0, 60000])
+        .range([height, 0]);
+    svg1.append("g")
+        .call(d3.axisLeft(y1));
+
+    // Bars
+    svg1.selectAll("mybar")
+        .data(data)
+        .join("rect")
+        .attr("x", d => x1(d.IntakeType))
+        .attr("y", d => y1(d.Count))
+        .attr("width", x1.bandwidth())
+        .attr("height", d => height - y1(d.Count))
+        .attr("fill", "#69b3a2")
+
+</script>
+
+<script>
+
+    // set the dimensions and margins of the graph
+
+    // append the svg1 object to the body of the page
+    const svg2 = d3.select("#my_dataviz2")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + 20 + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [{ OutcomeType: "Adoption", Count: 33594 },
+    { OutcomeType: "Transfer", Count: 23799 },
+    { OutcomeType: "Return to Owner", Count: 14791 },
+    { OutcomeType: "Euthanasia", Count: 6244 },
+    { OutcomeType: "Died", Count: 690 },
+    { OutcomeType: "Disposal", Count: 304 },
+    { OutcomeType: "Rto-Adopt", Count: 179 },
+    { OutcomeType: "Missing", Count: 46 },
+    { OutcomeType: "Relocate", Count: 15 }];
+
+    const x2 = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map(d => d.OutcomeType))
+        .padding(0.2);
+    svg2.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x2))
+        .selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+        .style("font-size", 12);
+
+    // Add Y axis
+    const y2 = d3.scaleLinear()
+        .domain([0, 35000])
+        .range([height, 0]);
+    svg2.append("g")
+        .call(d3.axisLeft(y2));
+
+    // Bars
+    svg2.selectAll("mybar")
+        .data(data)
+        .join("rect")
+        .attr("x", d => x2(d.OutcomeType))
+        .attr("y", d => y2(d.Count))
+        .attr("width", x2.bandwidth())
+        .attr("height", d => height - y2(d.Count))
+        .attr("fill", "#698fb3")
+</script>
+
+<script>
+    const svg3 = d3.select("#my_dataviz3")
+        .append("svg")
+        .attr("width", width + 15 + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Step 3
+    var
+        width3 = svg3.attr("width"),
+        height3 = svg3.attr("height"),
+        radius = 150;
+
+    // Step 1        
+    var data = [{ animalType: "Dog(57%)", Count: 45366 },
+    { animalType: "Cat(37%)", Count: 29539 },
+    { animalType: "Other(6%)", Count: 4428 },
+    { animalType: "Bird(0.4%)", Count: 339 }];
+
+    var g3 = svg3.append("g")
+        .attr("transform", "translate(" + width3 / 3 + "," + height3 / 2 + ")");
+
+    // Step 4
+    var ordScale = d3.scaleOrdinal()
+        .domain(data)
+        .range(['#ffd384', '#94ebcd', '#fbaccc', '#d3e0ea']);
+
+    // Step 5
+    var pie = d3.pie().value(function (d) {
+        return d.Count;
+    });
+
+    var arc = g3.selectAll("arc")
+        .data(pie(data))
+        .enter();
+
+    // Step 6
+    var path = d3.arc()
+        .outerRadius(radius)
+        .innerRadius(75);
+
+    arc.append("path")
+        .attr("d", path)
+        .attr("fill", function (d) { return ordScale(d.data.animalType); });
+
+    // Step 7
+    var label = d3.arc()
+        .outerRadius(radius)
+        .innerRadius(50);
+
+    var getAngle = function (d) {
+        return (180 / Math.PI * (d.startAngle + d.endAngle) / 2 - 90);
+    };
+
+    arc.append("text")
+        .attr("transform", function (d) {
+            return "translate(" + label.centroid(d) + ") " + "rotate(" + getAngle(d) + ")";
+        })
+        .text(function (d) { return d.data.animalType; })
+        .style("font-family", "arial")
+        .style("font-size", 14);
+
+</script>
+
+<script>
+    // set the dimensions and margins of the graph
+    // const margin = {top: 10, right: 30, bottom: 20, left: 50},
+    //     width = 460 - margin.left - margin.right,
+    //     height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    const svg4 = d3.select("#my_dataviz4")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [{ Sex: "Intact Female", Pos: 22.95, Neg: 77.05 },
+    { Sex: "Intact Male", Pos: 28.87, Neg: 71.13 },
+    { Sex: "Spayed Female", Pos: 81.41, Neg: 18.59 },
+    { Sex: "Neutered Male", Pos: 80.17, Neg: 19.83 }];
+
+    // const subgroups = data.columns.slice(1)
+    const subgroups = ["Pos", "Neg"];
+
+    // List of groups = species here = value of the first column called group -> I show them on the X axis
+    const groups = data.map(d => (d.Sex))
+
+    // Add X axis
+    const x4 = d3.scaleBand()
+        .domain(groups)
+        .range([0, width])
+        .padding([0.2])
+    svg4.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x4).tickSizeOuter(0));
+
+    // Add Y axis
+    const y4 = d3.scaleLinear()
+        .domain([0, 100])
+        .range([height, 0]);
+    svg4.append("g")
+        .call(d3.axisLeft(y4));
+
+    // color palette = one color per subgroup
+    const color = d3.scaleOrdinal()
+        .domain(subgroups)
+        .range(["#a05d56", "#808080"])
+
+    //stack the data? --> stack per subgroup
+    const stackedData = d3.stack()
+        .keys(subgroups)
+        (data)
+
+    // Show the bars
+    svg4.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData)
+        .join("g")
+        .attr("fill", d => color(d.key))
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data(d => d)
+        .join("rect")
+        .attr("x", d => x4(d.data.Sex))
+        .attr("y", d => y4(d[1]))
+        .attr("height", d => y4(d[0]) - y4(d[1]))
+        .attr("width", x4.bandwidth())
+
+    svg4.selectAll("text")
+        .style("font-size", 12);
+
+    // Handmade legend
+    svg4.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg4.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg4.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg4.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+</script>
+
+<script>
+
+    // set the dimensions and margins of the graph
+
+    // append the svg1 object to the body of the page
+    const svg5 = d3.select("#my_dataviz5")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + 5 + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [{ OutcomeType: "Adoption", avg_age: 1.592 },
+    { OutcomeType: "Transfer", avg_age: 1.714 },
+    { OutcomeType: "Missing", avg_age: 1.783 },
+    { OutcomeType: "Died", avg_age: 2.005 },
+    { OutcomeType: "Disposal", avg_age: 2.088 },
+    { OutcomeType: "Rto-Adopt", avg_age: 3.429 },
+    { OutcomeType: "Euthanasia", avg_age: 3.873 },
+    { OutcomeType: "Return to Owner", avg_age: 4.032 },
+    ];
+
+    function colorPicker(v) {
+        if (v === "Adoption" || v === "Return to Owner" || v === "Rto-Adopt") { return "#a05d56" }
+        else { return "#808080"; }
+    }
+
+    var x5 = d3.scaleBand()
+        .range([0, width])
+        .domain(data.map(d => d.OutcomeType))
+        .padding(0.2);
+    svg5.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x5))
+        .selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end");
+
+    // Add Y axis
+    var y5 = d3.scaleLinear()
+        .domain([0, 4.6])
+        .range([height, 0]);
+    svg5.append("g")
+        .call(d3.axisLeft(y5));
+
+    // Bars
+    svg5.selectAll("mybar")
+        .data(data)
+        .join("rect")
+        .attr("x", d => x5(d.OutcomeType))
+        .attr("y", d => y5(d.avg_age))
+        .attr("width", x5.bandwidth())
+        .attr("height", d => height - y5(d.avg_age))
+        .attr("fill", d => colorPicker(d.OutcomeType))
+
+    svg5.selectAll("text")
+        .style("font-size", 12);
+
+    svg5.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg5.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg5.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg5.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+</script>
+
+<script>
+    // set the dimensions and margins of the graph
+    // const margin = {top: 10, right: 30, bottom: 20, left: 50},
+    //     width = 460 - margin.left - margin.right,
+    //     height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    const svg6 = d3.select("#my_dataviz6")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [{ IntakeCondition: "Normal", Pos: 77.44, Neg: 22.56 },
+    { IntakeCondition: "Aged", Pos: 61.73, Neg: 38.27 },
+    { IntakeCondition: "Other", Pos: 58.95, Neg: 41.05 },
+    { IntakeCondition: "Pregnant", Pos: 56.25, Neg: 43.75 },
+    { IntakeCondition: "Injured", Pos: 54.55, Neg: 45.45 },
+    { IntakeCondition: "Nursing", Pos: 48.72, Neg: 51.28 },
+    { IntakeCondition: "Sick", Pos: 30.02, Neg: 69.98 },
+    { IntakeCondition: "Feral", Pos: 25.00, Neg: 75.00 }];
+
+    // const subgroups = ["Pos", "Neg"];
+
+    // List of groups = species here = value of the first column called group -> I show them on the X axis
+    const groups6 = data.map(d => (d.IntakeCondition))
+
+    // Add X axis
+    const x6 = d3.scaleBand()
+        .domain(groups6)
+        .range([0, width])
+        .padding([0.2])
+    svg6.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x6).tickSizeOuter(0));
+
+    // Add Y axis
+    const y6 = d3.scaleLinear()
+        .domain([0, 100])
+        .range([height, 0]);
+    svg6.append("g")
+        .call(d3.axisLeft(y6));
+
+    // color palette = one color per subgroup
+    // const color = d3.scaleOrdinal()
+    //     .domain(subgroups)
+    //     .range(["#a05d56", "#808080"])
+
+    //stack the data? --> stack per subgroup
+    const stackedData6 = d3.stack()
+        .keys(subgroups)
+        (data)
+
+    // Show the bars
+    svg6.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData6)
+        .join("g")
+        .attr("fill", d => color(d.key))
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data(d => d)
+        .join("rect")
+        .attr("x", d => x6(d.data.IntakeCondition))
+        .attr("y", d => y6(d[1]))
+        .attr("height", d => y6(d[0]) - y6(d[1]))
+        .attr("width", x6.bandwidth())
+
+    svg6.selectAll("text")
+        .style("font-size", 12);
+
+    // Handmade legend
+    svg6.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg6.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg6.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg6.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+</script>
+
+<script>
+    // set the dimensions and margins of the graph
+    // const margin = {top: 10, right: 30, bottom: 20, left: 50},
+    //     width = 460 - margin.left - margin.right,
+    //     height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    const svg7 = d3.select("#my_dataviz7")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [
+        { IntakeCondition: "Pregnant", Pos: 53.33, Neg: 46.67 },
+        { IntakeCondition: "Normal", Pos: 51.29, Neg: 48.71 },
+        { IntakeCondition: "Aged", Pos: 38.46, Neg: 61.54 },
+        { IntakeCondition: "Injured", Pos: 33.62, Neg: 66.38 },
+        { IntakeCondition: "Sick", Pos: 29.05, Neg: 70.95 },
+        { IntakeCondition: "Feral", Pos: 24.10, Neg: 75.90 },
+        { IntakeCondition: "Other", Pos: 23.40, Neg: 76.60 },
+        { IntakeCondition: "Nursing", Pos: 19.26, Neg: 80.74 },
+    ];
+
+    // const subgroups = ["Pos", "Neg"];
+
+    // List of groups = species here = value of the first column called group -> I show them on the X axis
+    const groups7 = data.map(d => (d.IntakeCondition))
+
+    // Add X axis
+    const x7 = d3.scaleBand()
+        .domain(groups7)
+        .range([0, width])
+        .padding([0.2])
+    svg7.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x7).tickSizeOuter(0));
+
+    // Add Y axis
+    const y7 = d3.scaleLinear()
+        .domain([0, 100])
+        .range([height, 0]);
+    svg7.append("g")
+        .call(d3.axisLeft(y7));
+
+    // color palette = one color per subgroup
+    // const color = d3.scaleOrdinal()
+    //     .domain(subgroups)
+    //     .range(["#a05d56", "#808080"])
+
+    //stack the data? --> stack per subgroup
+    const stackedData7 = d3.stack()
+        .keys(subgroups)
+        (data)
+
+    // Show the bars
+    svg7.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData7)
+        .join("g")
+        .attr("fill", d => color(d.key))
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data(d => d)
+        .join("rect")
+        .attr("x", d => x7(d.data.IntakeCondition))
+        .attr("y", d => y7(d[1]))
+        .attr("height", d => y7(d[0]) - y7(d[1]))
+        .attr("width", x7.bandwidth())
+
+    svg7.selectAll("text")
+        .style("font-size", 12);
+
+    // Handmade legend
+    svg7.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg7.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg7.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg7.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+</script>
+
+<script>
+    // set the dimensions and margins of the graph
+    // var margin = { top: 20, right: 20, bottom: 30, left: 50 },
+    //     width = 960 - margin.left - margin.right,
+    //     height = 500 - margin.top - margin.bottom;
+
+    // parse the date / time
+    // var parseTime = d3.timeParse("%d-%b-%y");
+    // set the ranges
+    var x = d3.scaleLinear().range([0, width]);
+    var y = d3.scaleLinear().range([height, 0]);
+
+    // define the 1st line
+    var valueline = d3.line()
+        .x(function (d) { return x(d.month); })
+        .y(function (d) { return y(d.pos); });
+
+    // define the 2nd line
+    var valueline2 = d3.line()
+        .x(function (d) { return x(d.month); })
+        .y(function (d) { return y(d.neg); });
+
+    // append the svg obgect to the body of the page
+    // appends a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
+    var svg8 = d3.select("#my_dataviz8")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    var data = [{ month: 1, Pos: 3170, Neg: 962 },
+    { month: 2, Pos: 3056, Neg: 925 },
+    { month: 3, Pos: 3264, Neg: 954 },
+    { month: 4, Pos: 2457, Neg: 843 },
+    { month: 5, Pos: 2868, Neg: 1023 },
+    { month: 6, Pos: 2491, Neg: 883 },
+    { month: 7, Pos: 2624, Neg: 878 },
+    { month: 8, Pos: 2575, Neg: 761 },
+    { month: 9, Pos: 2477, Neg: 873 },
+    { month: 10, Pos: 2872, Neg: 1154 },
+    { month: 11, Pos: 2960, Neg: 1102 },
+    { month: 12, Pos: 3182, Neg: 1011 }];
+
+    data.forEach(function (d) {
+        d.month = d.month;
+        d.pos = +d.Pos;
+        d.neg = +d.Neg;
+    });
+
+    // Scale the range of the data
+    x.domain(d3.extent(data, function (d) { return d.month; }));
+    y.domain([0, d3.max(data, function (d) {
+        return Math.max(d.pos, d.neg);
+    })]);
+
+    // Add the valueline path.
+    svg8.append("path")
+        .data([data])
+        .attr("class", "line")
+        .style("stroke", "#a05d56")
+        .attr("d", valueline);
+
+    // Add the valueline2 path.
+    svg8.append("path")
+        .data([data])
+        .attr("class", "line")
+        .style("stroke", "#808080")
+        .attr("d", valueline2);
+
+    monthmap = { 1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "June", 7: "July", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec" }
+
+    // Add the X Axis
+    svg8.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(15).tickFormat(x => monthmap[x]));
+
+    // Add the Y Axis
+    svg8.append("g")
+        .call(d3.axisLeft(y));
+
+    svg8.selectAll("text")
+        .style("font-size", 12);
+
+    // Handmade legend
+    svg8.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg8.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg8.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg8.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+</script>
+
+<script>
+    // set the dimensions and margins of the graph
+    // var margin = { top: 20, right: 20, bottom: 30, left: 50 },
+    //     width = 960 - margin.left - margin.right,
+    //     height = 500 - margin.top - margin.bottom;
+
+    // parse the date / time
+    // var parseTime = d3.timeParse("%d-%b-%y");
+    // set the ranges
+    var x = d3.scaleLinear().range([0, width]);
+    var y = d3.scaleLinear().range([height, 0]);
+
+    // define the 1st line
+    var valueline = d3.line()
+        .x(function (d) { return x(d.month); })
+        .y(function (d) { return y(d.pos); });
+
+    // define the 2nd line
+    var valueline2 = d3.line()
+        .x(function (d) { return x(d.month); })
+        .y(function (d) { return y(d.neg); });
+
+    // append the svg obgect to the body of the page
+    // appends a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
+    var svg9 = d3.select("#my_dataviz9")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    var data = [{ month: 1, Pos: 1094, Neg: 758 },
+    { month: 2, Pos: 770, Neg: 650 },
+    { month: 3, Pos: 688, Neg: 884 },
+    { month: 4, Pos: 524, Neg: 1253 },
+    { month: 5, Pos: 859, Neg: 1717 },
+    { month: 6, Pos: 1484, Neg: 1775 },
+    { month: 7, Pos: 2010, Neg: 1591 },
+    { month: 8, Pos: 1507, Neg: 1585 },
+    { month: 9, Pos: 1214, Neg: 1536 },
+    { month: 10, Pos: 1185, Neg: 1585 },
+    { month: 11, Pos: 1371, Neg: 1121 },
+    { month: 12, Pos: 1476, Neg: 902 }];
+
+    data.forEach(function (d) {
+        d.month = d.month;
+        d.pos = +d.Pos;
+        d.neg = +d.Neg;
+    });
+
+    // Scale the range of the data
+    x.domain(d3.extent(data, function (d) { return d.month; }));
+    y.domain([0, d3.max(data, function (d) {
+        return Math.max(d.pos, d.neg);
+    })]);
+
+    // Add the valueline path.
+    svg9.append("path")
+        .data([data])
+        .attr("class", "line")
+        .style("stroke", "#a05d56")
+        .attr("d", valueline);
+
+    // Add the valueline2 path.
+    svg9.append("path")
+        .data([data])
+        .attr("class", "line")
+        .style("stroke", "#808080")
+        .attr("d", valueline2);
+
+    monthmap = { 1: "Jan", 2: "Feb", 3: "Mar", 4: "Apr", 5: "May", 6: "June", 7: "July", 8: "Aug", 9: "Sep", 10: "Oct", 11: "Nov", 12: "Dec" }
+
+    // Add the X Axis
+    svg9.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x).ticks(15).tickFormat(x => monthmap[x]));
+
+    // Add the Y Axis
+    svg9.append("g")
+        .call(d3.axisLeft(y));
+
+    svg9.selectAll("text")
+        .style("font-size", 12);
+
+    // Handmade legend
+    svg9.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg9.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg9.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg9.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+</script>
+
+<script>
+    // set the dimensions and margins of the graph
+    // const margin = {top: 10, right: 30, bottom: 20, left: 50},
+    //     width = 460 - margin.left - margin.right,
+    //     height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    const svg10 = d3.select("#my_dataviz10")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + 35 + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [
+        { Breed: "Border Collie Mix", Pos: 79.76, Neg: 20.64 },
+        { Breed: "Catahoula Mix", Pos: 78.33, Neg: 21.67 },
+        { Breed: "Australian Cattle Dog Mix", Pos: 78.25, Neg: 21.75 },
+        { Breed: "Miniature Poodle Mix", Pos: 77.95, Neg: 22.05 },
+        { Breed: "German Shepherd Mix", Pos: 77.64, Neg: 22.36 },
+        { Breed: "Boxer Mix", Pos: 75.84, Neg: 24.16 },
+        { Breed: "Labrador Retriever Mix", Pos: 75.74, Neg: 24.26 },
+        { Breed: "Dachshund Mix", Pos: 73.37, Neg: 26.63 },
+        { Breed: "Pit Bull Mix", Pos: 72.87, Neg: 27.13 },
+        { Breed: "Chihuahua Shorthair Mix", Pos: 71.43, Neg: 28.57 },
+    ];
+
+    // const subgroups10 = ["Pos", "Neg"];
+
+    // List of groups = species here = value of the first column called group -> I show them on the X axis
+    const groups10 = data.map(d => (d.Breed))
+
+    // Add X axis
+    const x10 = d3.scaleBand()
+        .domain(groups10)
+        .range([0, width])
+        .padding([0.2])
+    svg10.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x10).tickSizeOuter(0));
+
+    // Add Y axis
+    const y10 = d3.scaleLinear()
+        .domain([0, 100])
+        .range([height, 0]);
+    svg10.append("g")
+        .call(d3.axisLeft(y10));
+
+    //stack the data? --> stack per subgroup
+    const stackedData10 = d3.stack()
+        .keys(subgroups)
+        (data)
+
+    // Show the bars
+    svg10.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData10)
+        .join("g")
+        .attr("fill", d => color(d.key))
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data(d => d)
+        .join("rect")
+        .attr("x", d => x10(d.data.Breed))
+        .attr("y", d => y10(d[1]))
+        .attr("height", d => y10(d[0]) - y10(d[1]))
+        .attr("width", x10.bandwidth())
+
+    svg10.selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+        .style("font-size", 11);
+
+    // Handmade legend
+    svg10.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg10.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg10.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg10.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+</script>
+
+<script>
+    // set the dimensions and margins of the graph
+    // const margin = {top: 10, right: 30, bottom: 20, left: 50},
+    //     width = 460 - margin.left - margin.right,
+    //     height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    const svg11 = d3.select("#my_dataviz11")
+        .append("svg")
+        .attr("width", width + margin.left + 5 * margin.right)
+        .attr("height", height + margin.top + 35 + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var data = [
+        { Breed: "Maine Coon Mix", Pos: 66.35, Neg: 33.65 },
+        { Breed: "Manx Mix", Pos: 63.75, Neg: 36.25 },
+        { Breed: "Domestic Shorthair", Pos: 55.04, Neg: 44.96 },
+        { Breed: "Domestic Longhair Mix", Pos: 54.73, Neg: 45.27 },
+        { Breed: "Siamese Mix", Pos: 52.71, Neg: 47.29 },
+        { Breed: "Snowshoe Mix", Pos: 50.68, Neg: 49.32 },
+        { Breed: "Domestic Medium Hair", Pos: 50, Neg: 50 },
+        { Breed: "Domestic Medium Hair Mix", Pos: 49.23, Neg: 50.77 },
+        { Breed: "Domestic Shorthair Mix", Pos: 46.73, Neg: 53.27 },
+        { Breed: "American Shorthair Mix", Pos: 43.66, Neg: 56.34 },
+    ];
+
+    // const subgroups10 = ["Pos", "Neg"];
+
+    // List of groups = species here = value of the first column called group -> I show them on the X axis
+    const groups11 = data.map(d => (d.Breed))
+
+    // Add X axis
+    const x11 = d3.scaleBand()
+        .domain(groups11)
+        .range([0, width])
+        .padding([0.2])
+    svg11.append("g")
+        .attr("transform", `translate(0, ${height})`)
+        .call(d3.axisBottom(x11).tickSizeOuter(0));
+
+    // Add Y axis
+    const y11 = d3.scaleLinear()
+        .domain([0, 100])
+        .range([height, 0]);
+    svg11.append("g")
+        .call(d3.axisLeft(y11));
+
+    // color palette = one color per subgroup
+    // const color = d3.scaleOrdinal()
+    //     .domain(subgroups)
+    //     .range(["#a05d56", "#808080"])
+
+    //stack the data? --> stack per subgroup
+    const stackedData11 = d3.stack()
+        .keys(subgroups)
+        (data)
+
+    // Show the bars
+    svg11.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData11)
+        .join("g")
+        .attr("fill", d => color(d.key))
+        .selectAll("rect")
+        // enter a second time = loop subgroup per subgroup to add all rectangles
+        .data(d => d)
+        .join("rect")
+        .attr("x", d => x11(d.data.Breed))
+        .attr("y", d => y11(d[1]))
+        .attr("height", d => y10(d[0]) - y11(d[1]))
+        .attr("width", x11.bandwidth())
+
+    svg11.selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+        .style("font-size", 11);
+
+    // Handmade legend
+    svg11.append("circle").attr("cx", 380).attr("cy", 70).attr("r", 6).style("fill", "#a05d56")
+    svg11.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
+    svg11.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+    svg11.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+</script>
+
+</html>

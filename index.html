@@ -234,591 +234,651 @@
         padding-right: 7%;
         text-align: left;
     }
+
+    @media (min-width: 1200px) {
+        .mobile-view {
+            display: none;
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .laptop-view {
+            display: none;
+        }
+    }
 </style>
 
-<body id="body" style="display:block">
-    <div class="slideshow-container">
-        <div class="mySlides fade">
-            <div class="numbertext">1 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F01%2Fpuppies.jpg&q=60"
-                style="width:100%">
-            <div class="intro">
-                <h1><b>Inspiration </b></h1>
-                <p> I wanted to pick a topic that interested me and I chose this dataset of Austin
-                    animal shelter because I felt it can be used to analyze adopters and pets they adopted. I'm an
-                    adopter myself. My two lovely cats were originally stray cats. They were first registered at a
-                    regional shelter and were later transferred to a nearby shelter before they finally came to my home.
-                    <br><br>In most cases, adopters choose to sign up on a waiting list at local shelter. Last year when
-                    I joined the waiting list, I clearly knew what I preferred to adopt: kittens that are young and
-                    healthy. Additionally I preferred domestic shorthair as this breed is known for being strong and
-                    energetic. <u><strong> I wonder how others think when they join the waiting list and what factors
-                            have
-                            affected their adoption decision?</u></strong> I hope this dataset will give me some
-                    insights.
-                </p>
-            </div>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
+<body>
+    <div class="mobile-view">
+        <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F01%2Fpuppies.jpg&q=60"
+            style="width:100%">
+        <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+        <h3><b>This is a narrative visualization project about animal shelter and pet adoption. <br> Please visit again from laptop :)</b></h3>
+    </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">2 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Overview of the dataset</h3>
-                    <h2><b>Austin Animal Center Shelter</b></h2>
-                    <div class="textbox">
-                        <h4>The largest U.S. animal shelter dataset</h4>
-                        <p>The Austin Animal Center is the largest no-kill animal shelter in the United States that
-                            provides care and shelter to over 18,000 animals each year. As part of the AAC's efforts to
-                            help and care for animals in need, the organization makes available its accumulated data and
-                            statistics as part of the city of Austin's Open Data Initiative.
-                        </p>
-                        <h4>Content of Dataset: Intakes & Outcomes 2013 ~ 2018</h4>
-                        <p>The data contains intakes and outcomes of animals entering the Austin Animal Center from the
-                            beginning of October 2013. The datasets are also freely available on the Socrata Open Data
-                            Access API and are updated daily. For this visualization project, I selected a Kaggle
-                            dataset which is a merged version of raw intakes and outcomes data from October 2013 to
-                            March 2018.</p>
-                        <p>For more information about the dataset, please refer to:
-                            <br>
-                            <br> <u>Socrata's Open Data:</u>
-                            <br> <a
-                                href="https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Intakes/wter-evkm"
-                                target="_blank"> - Austin Animal Center Intakes</a>
-                            <br> <a
-                                href="https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Outcomes/9t4d-g238"
-                                target="_blank"> - Austin Animal Center Outcomes</a>
-                            <br>
-                            <br> <u>Kaggle:</u>
-                            <br> <a
-                                href="https://www.kaggle.com/datasets/aaronschlegel/austin-animal-center-shelter-intakes-and-outcomes"
-                                target="_blank"> - Austin Animal Center Shelter Intakes and Outcomes</a>
-                        </p>
-                    </div>
+    <div class="laptop-view">
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F01%2Fpuppies.jpg&q=60"
+                    style="width:100%">
+                <div class="intro">
+                    <h1><b>Inspiration </b></h1>
+                    <p> I wanted to pick a topic that interested me and I chose this dataset of Austin
+                        animal shelter because I felt it can be used to analyze adopters and pets they adopted. I'm an
+                        adopter myself. My two lovely cats were originally stray cats. They were first registered at a
+                        regional shelter and were later transferred to a nearby shelter before they finally came to my
+                        home.
+                        <br><br>In most cases, adopters choose to sign up on a waiting list at local shelter. Last year
+                        when
+                        I joined the waiting list, I clearly knew what I preferred to adopt: kittens that are young and
+                        healthy. Additionally I preferred domestic shorthair as this breed is known for being strong and
+                        energetic. <u><strong> I wonder how others think when they join the waiting list and what
+                                factors
+                                have
+                                affected their adoption decision?</u></strong> I hope this dataset will give me some
+                        insights.
+                    </p>
                 </div>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">3 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Overview of the dataset</h3>
-                    <h2><b>Austin Animal Center Intakes</b></h2>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Count by Intake Type</h4>
-                            <div id="my_dataviz1"></div>
-                        </div>
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Overview of the dataset</h3>
+                        <h2><b>Austin Animal Center Shelter</b></h2>
                         <div class="textbox">
-                            <p><strong>Animal Intakes (2013 ~ 2018)</strong>
+                            <h4>The largest U.S. animal shelter dataset</h4>
+                            <p>The Austin Animal Center is the largest no-kill animal shelter in the United States that
+                                provides care and shelter to over 18,000 animals each year. As part of the AAC's efforts
+                                to
+                                help and care for animals in need, the organization makes available its accumulated data
+                                and
+                                statistics as part of the city of Austin's Open Data Initiative.
+                            </p>
+                            <h4>Content of Dataset: Intakes & Outcomes 2013 ~ 2018</h4>
+                            <p>The data contains intakes and outcomes of animals entering the Austin Animal Center from
+                                the
+                                beginning of October 2013. The datasets are also freely available on the Socrata Open
+                                Data
+                                Access API and are updated daily. For this visualization project, I selected a Kaggle
+                                dataset which is a merged version of raw intakes and outcomes data from October 2013 to
+                                March 2018.</p>
+                            <p>For more information about the dataset, please refer to:
                                 <br>
+                                <br> <u>Socrata's Open Data:</u>
+                                <br> <a
+                                    href="https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Intakes/wter-evkm"
+                                    target="_blank"> - Austin Animal Center Intakes</a>
+                                <br> <a
+                                    href="https://data.austintexas.gov/Health-and-Community-Services/Austin-Animal-Center-Outcomes/9t4d-g238"
+                                    target="_blank"> - Austin Animal Center Outcomes</a>
                                 <br>
-                                Intakes represent the status of animals as they arrive at the Animal Center. The largest
-                                source of shelter animals is stray, taking about 80% of the total numbers. Other intake
-                                types include Owner Surrender, Public Assist, Wildlife and Euthanasia Request. Only 251
-                                cases out of 79,672 records are Euthanasia Request (0.3%), which agrees with its
-                                reputation of being the largest "No Kill" shelter in the country.
+                                <br> <u>Kaggle:</u>
+                                <br> <a
+                                    href="https://www.kaggle.com/datasets/aaronschlegel/austin-animal-center-shelter-intakes-and-outcomes"
+                                    target="_blank"> - Austin Animal Center Shelter Intakes and Outcomes</a>
                             </p>
                         </div>
                     </div>
                 </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">4 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Overview of the dataset</h3>
-                    <h2><b>Austin Animal Center Outcomes</b></h2>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Count by Outcome Type</h4>
-                            <div id="my_dataviz2"></div>
-                        </div>
-                        <div class="textbox">
-                            <p><strong>Animal Outcomes (2013 ~ 2018)</strong>
-                                <br>
-                                <br>
-                                Outcomes represent the status of animals as they leave the Animal Center. Annually over
-                                90% of animals entering the center are adopted, transferred to rescue or returned to
-                                their owners. Only 6244 outcomes out of 79,672 records are Euthanasia (7.8 %), which
-                                qualifies the shelter as "No Kill" shelter by maintaining the live save rate higher than
-                                90%.
-                            </p>
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Overview of the dataset</h3>
+                        <h2><b>Austin Animal Center Intakes</b></h2>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Count by Intake Type</h4>
+                                <div id="my_dataviz1"></div>
+                            </div>
+                            <div class="textbox">
+                                <p><strong>Animal Intakes (2013 ~ 2018)</strong>
+                                    <br>
+                                    <br>
+                                    Intakes represent the status of animals as they arrive at the Animal Center. The
+                                    largest
+                                    source of shelter animals is stray, taking about 80% of the total numbers. Other
+                                    intake
+                                    types include Owner Surrender, Public Assist, Wildlife and Euthanasia Request. Only
+                                    251
+                                    cases out of 79,672 records are Euthanasia Request (0.3%), which agrees with its
+                                    reputation of being the largest "No Kill" shelter in the country.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">5 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Overview of the dataset</h3>
-                    <h2><b>Austin Animal Center Animals</b></h2>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Distribution by Animal Type</h4>
-                            <div id="my_dataviz3"></div>
-                        </div>
-                        <div class="textbox">
-                            <p><strong>Animal Types (2013 ~ 2018)</strong>
-                                <br>
-                                <br>
-                                The animal types are classified as dog, cat, bird and others. Dogs and cats are dominant
-                                in the dataset, therefore I will focus more on them in the following studies. Are you
-                                curious to learn
-                                the difference between dog adopters and cat adopters?
-                            </p>
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Overview of the dataset</h3>
+                        <h2><b>Austin Animal Center Outcomes</b></h2>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Count by Outcome Type</h4>
+                                <div id="my_dataviz2"></div>
+                            </div>
+                            <div class="textbox">
+                                <p><strong>Animal Outcomes (2013 ~ 2018)</strong>
+                                    <br>
+                                    <br>
+                                    Outcomes represent the status of animals as they leave the Animal Center. Annually
+                                    over
+                                    90% of animals entering the center are adopted, transferred to rescue or returned to
+                                    their owners. Only 6244 outcomes out of 79,672 records are Euthanasia (7.8 %), which
+                                    qualifies the shelter as "No Kill" shelter by maintaining the live save rate higher
+                                    than
+                                    90%.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">6 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> What factors will affect adoption?</h3>
-                    <div class="textbox">
-                        <h4></h4>
-                        <br><br>
-                        <p>I’m interested to know what are the major considerations when people decide to adopt pets
-                            from a shelter. Based on my own judgment, I have classified three outcome types as positive
-                            outcomes and the rest as negative outcomes.
-                            <u>In other words, I want to figure out what parameters contribute more towards the positive
-                                outcomes and what parameters contribute more towards the negative outcomes.</u>
-                            <br><br><br><br>
-                            <strong>Positive Outcome:</strong> Adoption, Return to Owner and Rto-Adopt
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Overview of the dataset</h3>
+                        <h2><b>Austin Animal Center Animals</b></h2>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Distribution by Animal Type</h4>
+                                <div id="my_dataviz3"></div>
+                            </div>
+                            <div class="textbox">
+                                <p><strong>Animal Types (2013 ~ 2018)</strong>
+                                    <br>
+                                    <br>
+                                    The animal types are classified as dog, cat, bird and others. Dogs and cats are
+                                    dominant
+                                    in the dataset, therefore I will focus more on them in the following studies. Are
+                                    you
+                                    curious to learn
+                                    the difference between dog adopters and cat adopters?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">6 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> What factors will affect adoption?</h3>
+                        <div class="textbox">
+                            <h4></h4>
                             <br><br>
-                            <strong>Negative Outcome:</strong> Transfer, Euthanasia, Died, Disposal, Missing and
-                            Relocate
-                            <br><br><br><br><u>After screening all the fields of dataset, I have identified two primary
-                                factors and three
-                                secondary factors.</u>
-                            <br><br><br><br>
-                            <strong>Primary factors:</strong> contain a common trend that is shared among all
-                            animal types.
-                            <br><br><strong>Secondary factors:</strong> contain a trend that is relevant to a specific
-                            animal type.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">7 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Primary factors that affect adoption</h3>
-                    <div class="textbox">
-                        <h4>Primary factors contain a common trend that is shared among all animal types.</h4><br>
-                        <ul><strong>Sex</strong>
-                            <br>Generally adopters have no preference on gender, but they very much prefer pet
-                            sterilization.
-                        </ul><br>
-                        <ul><strong>Age</strong>
-                            <br>People consider adopting younger pets over aged pets. Senior pets are more likely return
-                            to
-                            their owners.
-                        </ul>
-                    </div>
-                    <h4>Click to learn more!</h4>
-                    <button class="topicButton" onclick="currentSlide(10)">Sex</button>
-                    <button class="topicButton" onclick="currentSlide(11)">Age</button>
-                </div>
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">8 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Secondary factors that affect adoption</h3>
-                    <div class="textbox">
-                        <h4>Secondary factors contain a trend that is relevant to a specific animal type.</h4><br>
-                        <ul><strong>Health</strong>
-                            <br>More people are willing to adopt cats in non-normal conditions than dogs in non-normal
-                            conditions.
-                        </ul><br>
-                        <ul><strong>Month</strong>
-                            <br>Cats adoption has a seasonal popularity shift while dogs adoption is almost consistent
-                            throughout the year.
-                        </ul><br>
-                        <ul><strong>Breed</strong>
-                            <br>Some cat breeds gain distinguished popularity among cats adopters while dogs adopters
-                            focus less on breed.
-                        </ul>
-                    </div>
-                    <h4>Click to learn more!</h4>
-                    <button class="topicButton" onclick="currentSlide(12)">Health</button>
-                    <button class="topicButton" onclick="currentSlide(14)">Month</button>
-                    <button class="topicButton" onclick="currentSlide(16)">Breed</button>
-                </div>
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">9 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2018/06/kittens-in-shelter-69469.jpg?h=ece64c50&itok=rUfYlJ8G"
-                style="width:100%">
-            <div class="intro">
-                <h1><b>Why adopting pets?</b></h1>
-                <p>Did you know that over 1,000 people per hour run a search right here looking to adopt a pet? Pet
-                    adoption is quickly becoming the preferred way to find a new dog or cat, and rightly so, there are
-                    many benefits to adopting a pet. Pet adoption fees are usually much lower than buying from a
-                    breeder. You’re also likely to find a pet who’s already learned a few things. Adoptable pets are
-                    often already housetrained, good with kids, and do well with other pets.
-                    <br><br><u> By signing up on a waiting list, you will have the chance to adopt pets that perfectly
-                        satisfy your needs (e.g. sex, age, health, month,
-                        breed, etc.)
-                    </u>
-                    <br> <strong>And don’t forget the wonderful feeling you get from saving a life!</strong>
-                </p>
-                <p>
-                    <br>
-                <h2>Find an animal shelter near me!</h2>
-                <ul>
-                    <a href="https://www.petfinder.com/" target="_blank">PetFinder</a>
-                    <br> <a href="https://www.adoptapet.com/" target="_blank">Adopt a Pet</a>
-                    <br><a href="https://www.petsmart.com/adoption/people-saving-pets/ca-adoption-landing.html"
-                        target="_blank">PetSmart</a>
-                </ul>
-                <br>Author: Daiyun Xu (daiyunx2@illinois.edu)
-                </p>
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">7.1 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Sex</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Two-class Outcome Percentage by Sex</h4>
-                            <div id="my_dataviz4"></div>
-                        </div>
-                        <div class="textbox">
-                            <p>Generally adopters have no preference on gender, but they very much prefer pet
-                                sterilization. This phenomenon is even more obvious on female animals from the fact that
-                                female animals gain 254% popularity after sterilization. The popularity increase of male
-                                animals
-                                is 177%.</p>
-                        </div>
-                    </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(7)">
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">7.2 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3> Age</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Average Age by Outcome Type</h4>
-                            <div id="my_dataviz5"></div>
-                        </div>
-                        <div class="textbox">
-                            <p>People consider adopting younger pets over aged pets. Senior pets are more likely return
-                                to their
-                                owners. I chose not to show two-class outcome types because the two major positive
-                                outcomes,
-                                adoption and return to owner, have completely divergent average age. Therefore it is of
-                                little value to show them as a whole.</p>
-                        </div>
-                    </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(7)">
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="mySlides fade">
-            <div class="numbertext">8.1 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3>Health</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Two-class Outcome Percentage by Health (Dog)</h4>
-                            <div id="my_dataviz6"></div>
-                        </div>
-                        <div class="textbox">
-                            <p>More people are willing to adopt cats in non-normal conditions than dogs in non-normal
-                                conditions. The percentage of normal dogs ended up having positive outcome versus
-                                negative outcome is 77% to 23%. However this difference is not significant for normal
-                                cats, which is 53%
-                                to 47%. The reason behind it might relate to an intrinsic difference between cats and
-                                dogs -- dogs are pure outdoor animals but
-                                majority of cats are kept indoor. Consequently, physical diasability or compromised
-                                mobility will affect cats' popularity less than dogs' popularity.
+                            <p>I’m interested to know what are the major considerations when people decide to adopt pets
+                                from a shelter. Based on my own judgment, I have classified three outcome types as
+                                positive
+                                outcomes and the rest as negative outcomes.
+                                <u>In other words, I want to figure out what parameters contribute more towards the
+                                    positive
+                                    outcomes and what parameters contribute more towards the negative outcomes.</u>
+                                <br><br><br><br>
+                                <strong>Positive Outcome:</strong> Adoption, Return to Owner and Rto-Adopt
+                                <br><br>
+                                <strong>Negative Outcome:</strong> Transfer, Euthanasia, Died, Disposal, Missing and
+                                Relocate
+                                <br><br><br><br><u>After screening all the fields of dataset, I have identified two
+                                    primary
+                                    factors and three
+                                    secondary factors.</u>
+                                <br><br><br><br>
+                                <strong>Primary factors:</strong> contain a common trend that is shared among all
+                                animal types.
+                                <br><br><strong>Secondary factors:</strong> contain a trend that is relevant to a
+                                specific
+                                animal type.
                             </p>
-                            <br>
-                            <button class="topicButton" onclick="currentSlide(13)">Show Cat!</button>
                         </div>
                     </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(8)">
-                    </form>
                 </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">8.2 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3>Health</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Two-class Outcome Percentage by Health (Cat)</h4>
-                            <div id="my_dataviz7"></div>
-                        </div>
+            <div class="mySlides fade">
+                <div class="numbertext">7 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Primary factors that affect adoption</h3>
                         <div class="textbox">
-                            <p>More people are willing to adopt cats in non-normal conditions than dogs in non-normal
-                                conditions. The percentage of normal dogs ended up having positive outcome versus
-                                negative outcome is 77% to 23%. However this difference is not significant for normal
-                                cats, which is 53%
-                                to 47%. The reason behind it might relate to an intrinsic difference between cats and
-                                dogs -- dogs are pure outdoor animals but
-                                majority of cats are kept indoor. Consequently, physical diasability or compromised
-                                mobility will affect cats' popularity less than dogs' popularity.</p>
-                            <br>
-                            <button class="topicButton" onclick="currentSlide(12)">Show Dog!</button>
+                            <h4>Primary factors contain a common trend that is shared among all animal types.</h4><br>
+                            <ul><strong>Sex</strong>
+                                <br>Generally adopters have no preference on gender, but they very much prefer pet
+                                sterilization.
+                            </ul><br>
+                            <ul><strong>Age</strong>
+                                <br>People consider adopting younger pets over aged pets. Senior pets are more likely
+                                return
+                                to
+                                their owners.
+                            </ul>
                         </div>
+                        <h4>Click to learn more!</h4>
+                        <button class="topicButton" onclick="currentSlide(10)">Sex</button>
+                        <button class="topicButton" onclick="currentSlide(11)">Age</button>
                     </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(8)">
-                    </form>
                 </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">8.3 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3>Month</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Two-class Outcome Percentage by Month (Dog)</h4>
-                            <div id="my_dataviz8"></div>
-                        </div>
+            <div class="mySlides fade">
+                <div class="numbertext">8 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Secondary factors that affect adoption</h3>
                         <div class="textbox">
-                            <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost consistent
-                                throughout the year. The first peak of cats adoption is in July and the second peak is
-                                in December, which
-                                happen to align with the twice-a-year birthing season of cats. This phenomenon infers
-                                that cat adopters appear stronger
-                                desire than dog adopters to welcome pets in their early stage, possibly due to the fact
-                                that cats are considered "egoists"
-                                and are less clingy to their owner when they become older.
-                            </p>
-                            <br>
-                            <button class="topicButton" onclick="currentSlide(15)">Show Cat!</button>
+                            <h4>Secondary factors contain a trend that is relevant to a specific animal type.</h4><br>
+                            <ul><strong>Health</strong>
+                                <br>More people are willing to adopt cats in non-normal conditions than dogs in
+                                non-normal
+                                conditions.
+                            </ul><br>
+                            <ul><strong>Month</strong>
+                                <br>Cats adoption has a seasonal popularity shift while dogs adoption is almost
+                                consistent
+                                throughout the year.
+                            </ul><br>
+                            <ul><strong>Breed</strong>
+                                <br>Some cat breeds gain distinguished popularity among cats adopters while dogs
+                                adopters
+                                focus less on breed.
+                            </ul>
                         </div>
+                        <h4>Click to learn more!</h4>
+                        <button class="topicButton" onclick="currentSlide(12)">Health</button>
+                        <button class="topicButton" onclick="currentSlide(14)">Month</button>
+                        <button class="topicButton" onclick="currentSlide(16)">Breed</button>
                     </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(8)">
-                    </form>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">9 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2018/06/kittens-in-shelter-69469.jpg?h=ece64c50&itok=rUfYlJ8G"
+                    style="width:100%">
+                <div class="intro">
+                    <h1><b>Why adopting pets?</b></h1>
+                    <p>Did you know that over 1,000 people per hour run a search right here looking to adopt a pet? Pet
+                        adoption is quickly becoming the preferred way to find a new dog or cat, and rightly so, there
+                        are
+                        many benefits to adopting a pet. Pet adoption fees are usually much lower than buying from a
+                        breeder. You’re also likely to find a pet who’s already learned a few things. Adoptable pets are
+                        often already housetrained, good with kids, and do well with other pets.
+                        <br><br><u> By signing up on a waiting list, you will have the chance to adopt pets that
+                            perfectly
+                            satisfy your needs (e.g. sex, age, health, month,
+                            breed, etc.)
+                        </u>
+                        <br> <strong>And don’t forget the wonderful feeling you get from saving a life!</strong>
+                    </p>
+                    <p>
+                        <br>
+                    <h2>Find an animal shelter near me!</h2>
+                    <ul>
+                        <a href="https://www.petfinder.com/" target="_blank">PetFinder</a>
+                        <br> <a href="https://www.adoptapet.com/" target="_blank">Adopt a Pet</a>
+                        <br><a href="https://www.petsmart.com/adoption/people-saving-pets/ca-adoption-landing.html"
+                            target="_blank">PetSmart</a>
+                    </ul>
+                    <br>Author: Daiyun Xu (daiyunx2@illinois.edu)
+                    </p>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">7.1 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Sex</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Two-class Outcome Percentage by Sex</h4>
+                                <div id="my_dataviz4"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>Generally adopters have no preference on gender, but they very much prefer pet
+                                    sterilization. This phenomenon is even more obvious on female animals from the fact
+                                    that
+                                    female animals gain 254% popularity after sterilization. The popularity increase of
+                                    male
+                                    animals
+                                    is 177%.</p>
+                            </div>
+                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(7)">
+                        </form>
+                    </div>
                 </div>
             </div>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">8.4 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3>Month</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Two-class Outcome Percentage by Month (Cat)</h4>
-                            <div id="my_dataviz9"></div>
+            <div class="mySlides fade">
+                <div class="numbertext">7.2 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3> Age</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Average Age by Outcome Type</h4>
+                                <div id="my_dataviz5"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>People consider adopting younger pets over aged pets. Senior pets are more likely
+                                    return
+                                    to their
+                                    owners. I chose not to show two-class outcome types because the two major positive
+                                    outcomes,
+                                    adoption and return to owner, have completely divergent average age. Therefore it is
+                                    of
+                                    little value to show them as a whole.</p>
+                            </div>
                         </div>
-                        <div class="textbox">
-                            <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost consistent
-                                throughout the year. The first peak of cats adoption is in July and the second peak is
-                                in December, which
-                                happen to align with the twice-a-year birthing season of cats. This phenomenon infers
-                                that cat adopters appear stronger
-                                desire than dog adopters to welcome pets in their early stage, possibly due to the fact
-                                that cats are considered "egoists"
-                                and are less clingy to their owner when they become older.</p>
-                            <br>
-                            <button class="topicButton" onclick="currentSlide(14)">Show Dog!</button>
-                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(7)">
+                        </form>
                     </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(8)">
-                    </form>
+
                 </div>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">8.5 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-                    <h3>Breed</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Two-class Outcome Percentage by Month (Dog)</h4>
-                            <div id="my_dataviz10"></div>
+            <div class="mySlides fade">
+                <div class="numbertext">8.1 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3>Health</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Two-class Outcome Percentage by Health (Dog)</h4>
+                                <div id="my_dataviz6"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>More people are willing to adopt cats in non-normal conditions than dogs in
+                                    non-normal
+                                    conditions. The percentage of normal dogs ended up having positive outcome versus
+                                    negative outcome is 77% to 23%. However this difference is not significant for
+                                    normal
+                                    cats, which is 53%
+                                    to 47%. The reason behind it might relate to an intrinsic difference between cats
+                                    and
+                                    dogs -- dogs are pure outdoor animals but
+                                    majority of cats are kept indoor. Consequently, physical diasability or compromised
+                                    mobility will affect cats' popularity less than dogs' popularity.
+                                </p>
+                                <br>
+                                <button class="topicButton" onclick="currentSlide(13)">Show Cat!</button>
+                            </div>
                         </div>
-                        <div class="textbox">
-                            <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
-                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
-                                average cat positive outcome by 24.5% and 19.6%.
-                                However positive outcome of the top two popular dog breeds exceeds the average dog
-                                positive outcome by merely 4.7% and 2.9%. What does that mean?
-                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
-                                (53% vs 76%), therefore smaller denominator leads to larger variance.
-                                Secondly, generally speaking cat adopters always have a larger set of options. So,
-                                sheltered cats need something special to stand out, for example, rare breeds.
-                            </p>
-                            <br>
-                            <button class="topicButton" onclick="currentSlide(17)">Show Cat!</button>
-                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(8)">
+                        </form>
                     </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(8)">
-                    </form>
                 </div>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-        </div>
 
-        <div class="mySlides fade">
-            <div class="numbertext">8.6 / 9</div>
-            <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-            <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
-                style="width:100%">
-            <div class="outdiv">
-                <div class="indiv">
-
-                    <h3>Breed</h3>
-                    <div class="parent">
-                        <div class="indiv">
-                            <h4>Two-class Outcome Percentage by Breed (Cat)</h4>
-                            <div id="my_dataviz11"></div>
+            <div class="mySlides fade">
+                <div class="numbertext">8.2 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3>Health</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Two-class Outcome Percentage by Health (Cat)</h4>
+                                <div id="my_dataviz7"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>More people are willing to adopt cats in non-normal conditions than dogs in
+                                    non-normal
+                                    conditions. The percentage of normal dogs ended up having positive outcome versus
+                                    negative outcome is 77% to 23%. However this difference is not significant for
+                                    normal
+                                    cats, which is 53%
+                                    to 47%. The reason behind it might relate to an intrinsic difference between cats
+                                    and
+                                    dogs -- dogs are pure outdoor animals but
+                                    majority of cats are kept indoor. Consequently, physical diasability or compromised
+                                    mobility will affect cats' popularity less than dogs' popularity.</p>
+                                <br>
+                                <button class="topicButton" onclick="currentSlide(12)">Show Dog!</button>
+                            </div>
                         </div>
-                        <div class="textbox">
-                            <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
-                                focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
-                                average cat positive outcome by 24.5% and 19.6%.
-                                However positive outcome of the top two popular dog breeds exceeds the average dog
-                                positive outcome by merely 4.7% and 2.9%. What does that mean?
-                                Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
-                                (53% vs 76%), therefore smaller denominator leads to larger variance.
-                                Secondly, generally speaking cat adopters always have a larger set of options. So,
-                                sheltered cats need something special to stand out, for example, rare breeds. </p>
-                            <br>
-                            <button class="topicButton" onclick="currentSlide(16)">Show Dog!</button>
-                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(8)">
+                        </form>
                     </div>
-                    <form>
-                        <input type="button" value="Go back!" onclick="currentSlide(8)">
-                    </form>
                 </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
             </div>
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
+
+            <div class="mySlides fade">
+                <div class="numbertext">8.3 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3>Month</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Two-class Outcome Percentage by Month (Dog)</h4>
+                                <div id="my_dataviz8"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost
+                                    consistent
+                                    throughout the year. The first peak of cats adoption is in July and the second peak
+                                    is
+                                    in December, which
+                                    happen to align with the twice-a-year birthing season of cats. This phenomenon
+                                    infers
+                                    that cat adopters appear stronger
+                                    desire than dog adopters to welcome pets in their early stage, possibly due to the
+                                    fact
+                                    that cats are considered "egoists"
+                                    and are less clingy to their owner when they become older.
+                                </p>
+                                <br>
+                                <button class="topicButton" onclick="currentSlide(15)">Show Cat!</button>
+                            </div>
+                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(8)">
+                        </form>
+                    </div>
+                </div>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">8.4 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3>Month</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Two-class Outcome Percentage by Month (Cat)</h4>
+                                <div id="my_dataviz9"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost
+                                    consistent
+                                    throughout the year. The first peak of cats adoption is in July and the second peak
+                                    is
+                                    in December, which
+                                    happen to align with the twice-a-year birthing season of cats. This phenomenon
+                                    infers
+                                    that cat adopters appear stronger
+                                    desire than dog adopters to welcome pets in their early stage, possibly due to the
+                                    fact
+                                    that cats are considered "egoists"
+                                    and are less clingy to their owner when they become older.</p>
+                                <br>
+                                <button class="topicButton" onclick="currentSlide(14)">Show Dog!</button>
+                            </div>
+                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(8)">
+                        </form>
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">8.5 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+                        <h3>Breed</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Two-class Outcome Percentage by Month (Dog)</h4>
+                                <div id="my_dataviz10"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
+                                    focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
+                                    average cat positive outcome by 24.5% and 19.6%.
+                                    However positive outcome of the top two popular dog breeds exceeds the average dog
+                                    positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                    Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
+                                    (53% vs 76%), therefore smaller denominator leads to larger variance.
+                                    Secondly, generally speaking cat adopters always have a larger set of options. So,
+                                    sheltered cats need something special to stand out, for example, rare breeds.
+                                </p>
+                                <br>
+                                <button class="topicButton" onclick="currentSlide(17)">Show Cat!</button>
+                            </div>
+                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(8)">
+                        </form>
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">8.6 / 9</div>
+                <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
+                <img src="https://images.squarespace-cdn.com/content/v1/59fa71444c0dbfb08e66d1f2/1510873996474-PVOM3SVF56SL9FNBSBBN/banner.jpg?format=2500w"
+                    style="width:100%">
+                <div class="outdiv">
+                    <div class="indiv">
+
+                        <h3>Breed</h3>
+                        <div class="parent">
+                            <div class="indiv">
+                                <h4>Two-class Outcome Percentage by Breed (Cat)</h4>
+                                <div id="my_dataviz11"></div>
+                            </div>
+                            <div class="textbox">
+                                <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
+                                    focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
+                                    average cat positive outcome by 24.5% and 19.6%.
+                                    However positive outcome of the top two popular dog breeds exceeds the average dog
+                                    positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                    Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
+                                    (53% vs 76%), therefore smaller denominator leads to larger variance.
+                                    Secondly, generally speaking cat adopters always have a larger set of options. So,
+                                    sheltered cats need something special to stand out, for example, rare breeds. </p>
+                                <br>
+                                <button class="topicButton" onclick="currentSlide(16)">Show Dog!</button>
+                            </div>
+                        </div>
+                        <form>
+                            <input type="button" value="Go back!" onclick="currentSlide(8)">
+                        </form>
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+            </div>
+
+
+
         </div>
+        <br>
 
-
-
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+            <span class="dot" onclick="currentSlide(9)"></span>
+        </div>
     </div>
-    <br>
-
-    <div style="text-align:center">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-        <span class="dot" onclick="currentSlide(4)"></span>
-        <span class="dot" onclick="currentSlide(5)"></span>
-        <span class="dot" onclick="currentSlide(6)"></span>
-        <span class="dot" onclick="currentSlide(7)"></span>
-        <span class="dot" onclick="currentSlide(8)"></span>
-        <span class="dot" onclick="currentSlide(9)"></span>
-    </div>
-
-
-
 </body>
 
 <script>
@@ -1678,27 +1738,6 @@
     svg11.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
     svg11.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg11.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
-</script>
-
-<script>
-    $(function () {
-        var system = {};
-        var p = navigator.platform;
-        var u = navigator.userAgent;
-        system.win = p.indexOf("Win") == 0;
-        system.mac = p.indexOf("Mac") == 0;
-        system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
-        if (system.win || system.mac || system.xll) {
-            if (u.indexOf('Windows Phone') > -1) {
-
-            } else {
-                alert('Please visit again from laptop :)')
-            }
-        } else {
-            $('#body').css('display', 'none');
-        }
-
-    });
 </script>
 
 </html>

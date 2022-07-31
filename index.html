@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+<script src="https://d3js.org/d3.v7.js"></script>
 <style>
     /* Slideshow container */
     .slideshow-container {
@@ -240,7 +241,7 @@
             display: none;
         }
     }
-    
+
     @media (max-width: 1200px) {
         .laptop-view {
             display: none;
@@ -252,8 +253,9 @@
     <div class="mobile-view">
         <img src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F20%2F2019%2F01%2Fpuppies.jpg&q=60"
             style="width:100%">
-        <div class="authortext">Daiyun Xu (daiyunx2@illinois.edu)</div>
-        <h3><b>This is a narrative visualization project about animal shelter and pet adoption. <br> Please visit again from laptop :)</b></h3>
+        <h3><b>This is a narrative visualization about animal shelter and pet adoption. <br> Please adjust your browser
+                size or visit again
+                from laptop :)</b></h3>
     </div>
 
     <div class="laptop-view">
@@ -273,12 +275,9 @@
                         <br><br>In most cases, adopters choose to sign up on a waiting list at local shelter. Last year
                         when
                         I joined the waiting list, I clearly knew what I preferred to adopt: kittens that are young and
-                        healthy. Additionally I preferred domestic shorthair as this breed is known for being strong and
-                        energetic. <u><strong> I wonder how others think when they join the waiting list and what
-                                factors
-                                have
-                                affected their adoption decision?</u></strong> I hope this dataset will give me some
-                        insights.
+                        healthy. Moreover I preferred domestic shorthair as this breed is known for being strong and
+                        energetic. <u><strong> I wonder what preference other adopters have and what factors have
+                        affected their adoption decision?</u></strong> I hope this dataset will give me some insights.
                     </p>
                 </div>
                 <a class="next" onclick="plusSlides(1)">❯</a>
@@ -444,29 +443,36 @@
                         <h3> What factors will affect adoption?</h3>
                         <div class="textbox">
                             <h4></h4>
-                            <br><br>
                             <p>I’m interested to know what are the major considerations when people decide to adopt pets
                                 from a shelter. Based on my own judgment, I have classified three outcome types as
                                 positive
                                 outcomes and the rest as negative outcomes.
-                                <u>In other words, I want to figure out what parameters contribute more towards the
+                                <u>In other words, I will observe what features contribute more towards the
                                     positive
-                                    outcomes and what parameters contribute more towards the negative outcomes.</u>
-                                <br><br><br><br>
-                                <strong>Positive Outcome:</strong> Adoption, Return to Owner and Rto-Adopt
-                                <br><br>
-                                <strong>Negative Outcome:</strong> Transfer, Euthanasia, Died, Disposal, Missing and
-                                Relocate
-                                <br><br><br><br><u>After screening all the fields of dataset, I have identified two
-                                    primary
-                                    factors and three
-                                    secondary factors.</u>
-                                <br><br><br><br>
-                                <strong>Primary factors:</strong> contain a common trend that is shared among all
-                                animal types.
-                                <br><br><strong>Secondary factors:</strong> contain a trend that is relevant to a
-                                specific
-                                animal type.
+                                    outcomes and what features contribute more towards the negative outcomes.</u>
+
+                            <h4>Two Class of Outcome Type</h4>
+                            <div class="parent">
+                                <div id="my_dataviz_extra"></div>
+                                <div><br><br>
+                                    <strong style="color:#a05d56">Positive Outcome</strong>: Adoption, Return to Owner
+                                    and Rto-Adopt (a mixed type of both)
+                                    <br><br><br>
+                                    <strong style="color:#808080">Negative Outcome</strong>: Transfer, Euthanasia, Died,
+                                    Disposal, Missing and
+                                    Relocate
+                                </div>
+                            </div>
+                            <u>After screening all the parameters in the dataset, I have figured out two
+                                primary factors and three secondary factors.</u>
+                            <br><br>
+                            <strong>Primary factors:</strong> <strong style="color:#a05d56; text-align: right">Sex,
+                                Age</strong> contain a common trend that is shared among all
+                            animal types.
+                            <br><br><strong>Secondary factors:</strong> <strong
+                                style="color:#a05d56; text-align: right">Health, Month, Breed</strong> contain a trend
+                            that is relevant to a specific
+                            animal type.
                             </p>
                         </div>
                     </div>
@@ -554,7 +560,7 @@
                         many benefits to adopting a pet. Pet adoption fees are usually much lower than buying from a
                         breeder. You’re also likely to find a pet who’s already learned a few things. Adoptable pets are
                         often already housetrained, good with kids, and do well with other pets.
-                        <br><br><u> By signing up on a waiting list, you will have the chance to adopt pets that
+                        <br><br><u> By signing up on the shelter's waiting list, you will have the chance to adopt pets that
                             perfectly
                             satisfy your needs (e.g. sex, age, health, month,
                             breed, etc.)
@@ -586,7 +592,7 @@
                         <h3> Sex</h3>
                         <div class="parent">
                             <div class="indiv">
-                                <h4>Two-class Outcome Percentage by Sex</h4>
+                                <h4>Percentage of Two-class Outcome by Sex</h4>
                                 <div id="my_dataviz4"></div>
                             </div>
                             <div class="textbox">
@@ -623,7 +629,7 @@
                                 <p>People consider adopting younger pets over aged pets. Senior pets are more likely
                                     return
                                     to their
-                                    owners. I chose not to show two-class outcome types because the two major positive
+                                    owners. Unlike other factors, I chose not to merge two-class outcome types for age because the two major positive
                                     outcomes,
                                     adoption and return to owner, have completely divergent average age. Therefore it is
                                     of
@@ -648,14 +654,18 @@
                         <h3>Health</h3>
                         <div class="parent">
                             <div class="indiv">
-                                <h4>Two-class Outcome Percentage by Health (Dog)</h4>
+                                <h4
+                                    style="font-size: 20px;width: 10%; margin-left: 40%; margin-bottom: -2%;background-color: lightsalmon">
+                                    Dog</h4>
+                                <h4>Percentage of Two-class Outcome by Health</h4>
                                 <div id="my_dataviz6"></div>
                             </div>
                             <div class="textbox">
+                                <br><br>
                                 <p>More people are willing to adopt cats in non-normal conditions than dogs in
                                     non-normal
-                                    conditions. The percentage of normal dogs ended up having positive outcome versus
-                                    negative outcome is 77% to 23%. However this difference is not significant for
+                                    conditions. The percentage of normal dogs that ends up having positive outcome versus
+                                    negative outcome is 77% to 23%. However this gap is not significant for
                                     normal
                                     cats, which is 53%
                                     to 47%. The reason behind it might relate to an intrinsic difference between cats
@@ -686,21 +696,26 @@
                         <h3>Health</h3>
                         <div class="parent">
                             <div class="indiv">
-                                <h4>Two-class Outcome Percentage by Health (Cat)</h4>
+                                <h4
+                                    style="font-size: 20px;width: 10%; margin-left: 40%; margin-bottom: -2%; background-color: lightsalmon">
+                                    Cat</h4>
+                                <h4>Percentage of Two-class Outcome by Health</h4>
                                 <div id="my_dataviz7"></div>
                             </div>
                             <div class="textbox">
+                                <br><br>
                                 <p>More people are willing to adopt cats in non-normal conditions than dogs in
                                     non-normal
-                                    conditions. The percentage of normal dogs ended up having positive outcome versus
-                                    negative outcome is 77% to 23%. However this difference is not significant for
+                                    conditions. The percentage of normal dogs that ends up having positive outcome versus
+                                    negative outcome is 77% to 23%. However this gap is not significant for
                                     normal
                                     cats, which is 53%
                                     to 47%. The reason behind it might relate to an intrinsic difference between cats
                                     and
                                     dogs -- dogs are pure outdoor animals but
                                     majority of cats are kept indoor. Consequently, physical diasability or compromised
-                                    mobility will affect cats' popularity less than dogs' popularity.</p>
+                                    mobility will affect cats' popularity less than dogs' popularity.
+                                </p>
                                 <br>
                                 <button class="topicButton" onclick="currentSlide(12)">Show Dog!</button>
                             </div>
@@ -723,16 +738,20 @@
                         <h3>Month</h3>
                         <div class="parent">
                             <div class="indiv">
-                                <h4>Two-class Outcome Percentage by Month (Dog)</h4>
+                                <h4
+                                    style="font-size: 20px;width: 10%; margin-left: 40%; margin-bottom: -2%; background-color: lightsalmon">
+                                    Dog</h4>
+                                <h4>Count of Two-class Outcome by Month</h4>
                                 <div id="my_dataviz8"></div>
                             </div>
                             <div class="textbox">
+                                <br><br>
                                 <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost
                                     consistent
                                     throughout the year. The first peak of cats adoption is in July and the second peak
                                     is
                                     in December, which
-                                    happen to align with the twice-a-year birthing season of cats. This phenomenon
+                                    happens to align with the twice-a-year birthing season of cats. This phenomenon
                                     infers
                                     that cat adopters appear stronger
                                     desire than dog adopters to welcome pets in their early stage, possibly due to the
@@ -762,16 +781,20 @@
                         <h3>Month</h3>
                         <div class="parent">
                             <div class="indiv">
-                                <h4>Two-class Outcome Percentage by Month (Cat)</h4>
+                                <h4
+                                    style="font-size: 20px;width: 10%; margin-left: 40%; margin-bottom: -2%; background-color: lightsalmon">
+                                    Cat</h4>
+                                <h4>Count of Two-class Outcome by Month</h4>
                                 <div id="my_dataviz9"></div>
                             </div>
                             <div class="textbox">
+                                <br><br>
                                 <p>Cats adoption has a seasonal popularity shift while dogs adoption is almost
                                     consistent
                                     throughout the year. The first peak of cats adoption is in July and the second peak
                                     is
                                     in December, which
-                                    happen to align with the twice-a-year birthing season of cats. This phenomenon
+                                    happens to align with the twice-a-year birthing season of cats. This phenomenon
                                     infers
                                     that cat adopters appear stronger
                                     desire than dog adopters to welcome pets in their early stage, possibly due to the
@@ -800,18 +823,22 @@
                         <h3>Breed</h3>
                         <div class="parent">
                             <div class="indiv">
-                                <h4>Two-class Outcome Percentage by Month (Dog)</h4>
+                                <h4
+                                    style="font-size: 20px;width: 10%; margin-left: 40%; margin-bottom: -2%; background-color: lightsalmon">
+                                    Dog</h4>
+                                <h4>Percentage of Two-class Outcome by Breed</h4>
                                 <div id="my_dataviz10"></div>
                             </div>
                             <div class="textbox">
+                                <br><br>
                                 <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
                                     focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
                                     average cat positive outcome by 24.5% and 19.6%.
                                     However positive outcome of the top two popular dog breeds exceeds the average dog
-                                    positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                    positive outcome by merely 4.7% and 2.9%. <br>What does that mean?
                                     Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
                                     (53% vs 76%), therefore smaller denominator leads to larger variance.
-                                    Secondly, generally speaking cat adopters always have a larger set of options. So,
+                                    Secondly, generally speaking cat adopters have a larger set of options. So,
                                     sheltered cats need something special to stand out, for example, rare breeds.
                                 </p>
                                 <br>
@@ -823,7 +850,7 @@
                         </form>
                     </div>
                 </div>
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
             </div>
 
             <div class="mySlides fade">
@@ -833,23 +860,27 @@
                     style="width:100%">
                 <div class="outdiv">
                     <div class="indiv">
-
                         <h3>Breed</h3>
                         <div class="parent">
                             <div class="indiv">
-                                <h4>Two-class Outcome Percentage by Breed (Cat)</h4>
+                                <h4
+                                    style="font-size: 20px;width: 10%; margin-left: 40%; margin-bottom: -2%; background-color: lightsalmon">
+                                    Cat</h4>
+                                <h4>Percentage of Two-class Outcome by Breed</h4>
                                 <div id="my_dataviz11"></div>
                             </div>
                             <div class="textbox">
+                                <br><br>
                                 <p>Few cat breeds have distinguished popularity among cats adopters while dogs adopters
                                     focus less on breed. Positive outcome of the top two popular cat breeds exceeds the
                                     average cat positive outcome by 24.5% and 19.6%.
                                     However positive outcome of the top two popular dog breeds exceeds the average dog
-                                    positive outcome by merely 4.7% and 2.9%. What does that mean?
+                                    positive outcome by merely 4.7% and 2.9%. <br>What does that mean?
                                     Firstly, overall positive outcome percentage of cats is much fewer than that of dogs
                                     (53% vs 76%), therefore smaller denominator leads to larger variance.
-                                    Secondly, generally speaking cat adopters always have a larger set of options. So,
-                                    sheltered cats need something special to stand out, for example, rare breeds. </p>
+                                    Secondly, generally speaking cat adopters have a larger set of options. So,
+                                    sheltered cats need something special to stand out, for example, rare breeds.
+                                </p>
                                 <br>
                                 <button class="topicButton" onclick="currentSlide(16)">Show Dog!</button>
                             </div>
@@ -1164,7 +1195,7 @@
     const svg5 = d3.select("#my_dataviz5")
         .append("svg")
         .attr("width", width + margin.left + 5 * margin.right)
-        .attr("height", height + margin.top + 5 + margin.bottom)
+        .attr("height", height + margin.top + 10 + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -1299,6 +1330,28 @@
     svg6.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg6.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
 
+    const annotations = [
+        {
+            note: {
+                label: "normal dogs pos vs neg: 77% to 23%",
+            },
+            color: ["#000000"],
+            x: 25,
+            y: 70,
+            dx: 40,
+            dy: -90,
+            type: d3.annotationCalloutElbow,
+            connector: { end: "arrow" },
+        }
+    ]
+    // Add annotation to the chart
+    const makeAnnotations = d3.annotation()
+        .annotations(annotations)
+
+    svg6.append("g")
+        .style("font-size", 15)
+        .call(makeAnnotations)
+
 </script>
 
 <script>
@@ -1381,6 +1434,28 @@
     svg7.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
     svg7.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg7.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+    const annotations7 = [
+        {
+            note: {
+                label: "normal cats pos vs neg: 53% to 47%",
+            },
+            color: ["#000000"],
+            x: 70,
+            y: 149,
+            dx: 40,
+            dy: -169,
+            type: d3.annotationCalloutElbow,
+            connector: { end: "arrow" },
+        }
+    ]
+    // Add annotation to the chart
+    const makeAnnotations7 = d3.annotation()
+        .annotations(annotations7)
+
+    svg7.append("g")
+        .style("font-size", 15)
+        .call(makeAnnotations7)
 
 </script>
 
@@ -1476,6 +1551,28 @@
     svg8.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg8.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
 
+    const annotations8 = [
+        {
+            note: {
+                label: "dogs adoption is almost consistent in a year",
+            },
+            color: ["#000000"],
+            x: 100,
+            y: 80,
+            dx: 40,
+            dy: 70,
+            type: d3.annotationCalloutElbow,
+            connector: { end: "arrow" },
+        }
+    ]
+    // Add annotation to the chart
+    const makeAnnotations8 = d3.annotation()
+        .annotations(annotations8)
+
+    svg8.append("g")
+        .style("font-size", 15)
+        .call(makeAnnotations8)
+
 </script>
 
 <script>
@@ -1570,6 +1667,41 @@
     svg9.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg9.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
 
+    const annotations9 = [
+        {
+            note: {
+                label: "cats adoption 1st peak in July",
+            },
+            color: ["#000000"],
+            x: 210,
+            y: 2,
+            dx: 40,
+            dy: 0,
+            type: d3.annotationCalloutElbow,
+            connector: { end: "arrow" },
+        },
+        {
+            note: {
+                label: "2nd peak in December",
+            },
+            color: ["#000000"],
+            x: 350,
+            y: 100,
+            dx: -50,
+            dy: 150,
+            type: d3.annotationCalloutElbow,
+            connector: { end: "arrow" },
+        }
+    ]
+    // Add annotation to the chart
+    const makeAnnotations9 = d3.annotation()
+        .annotations(annotations9)
+
+    svg9.append("g")
+        .style("font-size", 15)
+        .call(makeAnnotations9)
+
+
 </script>
 
 <script>
@@ -1582,7 +1714,7 @@
     const svg10 = d3.select("#my_dataviz10")
         .append("svg")
         .attr("width", width + margin.left + 5 * margin.right)
-        .attr("height", height + margin.top + 35 + margin.bottom)
+        .attr("height", height + margin.top + 44 + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -1652,6 +1784,36 @@
     svg10.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg10.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
 
+    svg10.append('line')
+        .style("stroke", "white")
+        .style("stroke-width", 2)
+        .attr("x1", 0)
+        .attr("y1", 72)
+        .attr("x2", 370)
+        .attr("y2", 72);
+
+    const annotations10 = [
+        {
+            note: {
+                label: "dog's average positive outcome is 76.1%",
+            },
+            color: ["#000000"],
+            x: 150,
+            y: 68,
+            dx: 40,
+            dy: -87,
+            type: d3.annotationCalloutElbow,
+            connector: { end: "arrow" },
+        }
+    ]
+    // Add annotation to the chart
+    const makeAnnotations10 = d3.annotation()
+        .annotations(annotations10)
+
+    svg10.append("g")
+        .style("font-size", 15)
+        .call(makeAnnotations10)
+
 </script>
 
 <script>
@@ -1664,7 +1826,7 @@
     const svg11 = d3.select("#my_dataviz11")
         .append("svg")
         .attr("width", width + margin.left + 5 * margin.right)
-        .attr("height", height + margin.top + 35 + margin.bottom)
+        .attr("height", height + margin.top + 44 + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -1738,6 +1900,92 @@
     svg11.append("circle").attr("cx", 380).attr("cy", 100).attr("r", 6).style("fill", "#808080")
     svg11.append("text").attr("x", 400).attr("y", 70).text("Positive Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
     svg11.append("text").attr("x", 400).attr("y", 100).text("Negative Outcome").style("font-size", "12px").attr("alignment-baseline", "middle")
+
+    svg11.append('line')
+        .style("stroke", "white")
+        .style("stroke-width", 2)
+        .attr("x1", 0)
+        .attr("y1", 140)
+        .attr("x2", 370)
+        .attr("y2", 140);
+
+    const annotations11 = [
+        {
+            note: {
+                label: "cat's average positive outcome is 53.3%",
+            },
+            color: ["#000000"],
+            x: 150,
+            y: 135,
+            dx: 40,
+            dy: -155,
+            type: d3.annotationCalloutElbow,
+            connector: { end: "arrow" },
+        }
+    ]
+    // Add annotation to the chart
+    const makeAnnotations11 = d3.annotation()
+        .annotations(annotations11)
+
+    svg11.append("g")
+        .style("font-size", 15)
+        .call(makeAnnotations11)
+
+</script>
+
+<script>
+
+    // set the dimensions and margins of the graph
+
+    // append the svg1 object to the body of the page
+    const svg0 = d3.select("#my_dataviz_extra")
+        .append("svg")
+        .attr("width", width / 2 + margin.left + margin.right / 2)
+        .attr("height", height / 2 + margin.top / 2 + 10 + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top / 2})`);
+
+    var data = [{ OutcomeType: "Adoption", Count: 33594 },
+    { OutcomeType: "Transfer", Count: 23799 },
+    { OutcomeType: "Return to Owner", Count: 14791 },
+    { OutcomeType: "Euthanasia", Count: 6244 },
+    { OutcomeType: "Died", Count: 690 },
+    { OutcomeType: "Disposal", Count: 304 },
+    { OutcomeType: "Rto-Adopt", Count: 179 },
+    { OutcomeType: "Missing", Count: 46 },
+    { OutcomeType: "Relocate", Count: 15 }];
+
+    const x0 = d3.scaleBand()
+        .range([0, width / 2])
+        .domain(data.map(d => d.OutcomeType))
+        .padding(0.2);
+    svg0.append("g")
+        .attr("transform", `translate(0, ${height / 2})`)
+        .call(d3.axisBottom(x0))
+        .selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end")
+        .style("font-size", 8);
+
+    // Add Y axis
+    const y0 = d3.scaleLinear()
+        .domain([0, 35000])
+        .range([height / 2, 0]);
+    svg0.append("g")
+        .call(d3.axisLeft(y0));
+
+    // Bars
+    svg0.selectAll("mybar")
+        .data(data)
+        .join("rect")
+        .attr("x", d => x0(d.OutcomeType))
+        .attr("y", d => y0(d.Count))
+        .attr("width", x0.bandwidth())
+        .attr("height", d => height / 2 - y0(d.Count))
+        .attr("fill", "#698fb3")
+        .transition()
+        .delay(3000).duration(2000)
+        .attr("fill", d => colorPicker(d.OutcomeType))
 </script>
 
 </html>
